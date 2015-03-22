@@ -138,7 +138,7 @@ gulp.task('concat', function() {
 // Sass task, will run when any SCSS files change & BrowserSync
 // will auto-update browsers
 gulp.task('sass', function () {
-    return gulp.src('styles/**/*.scss')
+    return gulp.src('styles/style.scss')
         .pipe(sourcemaps.init())
         .pipe(sass({ style: 'expanded' }))
         .on('error', notify.onError({
@@ -147,7 +147,7 @@ gulp.task('sass', function () {
         }))
         .pipe(autoprefixer('last 3 version'))
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest('css'))
+        .pipe(gulp.dest('styles'))
         .pipe(reload({stream: true}))
         .pipe(notify({ message: 'Styles task complete' }));
 });
@@ -155,7 +155,7 @@ gulp.task('sass', function () {
 gulp.task('sass:build', function() {
   var s = size();
 
-  return gulp.src('styles/**/*.scss')
+  return gulp.src('styles/style.scss')
     .pipe(sass({
       style: 'compact'
     }))
