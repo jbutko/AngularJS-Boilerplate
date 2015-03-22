@@ -1,6 +1,6 @@
 /**
  * 
- * Angular boilerplate
+ * AngularJS Boilerplate
  * @description           Description
  * @author                Jozef Butko // www.jozefbutko.com/resume
  * @url                   www.jozefbutko.com
@@ -26,7 +26,17 @@
     // routes
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
+        templateUrl: 'views/home.html',
+        controller: 'MainController',
+        controllerAs: 'main'
+      })
+      .when('/contact', {
+        templateUrl: 'views/contact.html',
+        controller: 'MainController',
+        controllerAs: 'main'
+      })
+      .when('/about', {
+        templateUrl: 'views/about.html',
         controller: 'MainController',
         controllerAs: 'main'
       })

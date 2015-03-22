@@ -10,7 +10,9 @@
  * 4. build index.html and change base tag into _build folder
  * 5. copy fonts
  * 6. copy components folder - directives, services etc., only html
- * 7. TODO: transform views into templateCache
+ * 7. copy views folder - directives, services etc., only html
+ * 8. show build folder size
+ * 9. copy views TODO: templateCache
  * 
  */
 var browserSync     = require('browser-sync');
@@ -38,6 +40,7 @@ var angularFilesort = require('gulp-angular-filesort');
 var uncss           = require('gulp-uncss');
 var htmlreplace     = require('gulp-html-replace');
 var $               = require('gulp-load-plugins')(); // TODO
+var runSequence     = require('run-sequence');
 
 
 // optimize images
@@ -120,9 +123,7 @@ gulp.task('views', function() {
 gulp.task('clean:build', function (cb) {
   del([
     // here we use a globbing pattern to match everything inside the `build` folder
-    './_build/*.*',
-    './_build/css/**/*.*',
-    './_build/js/**/*.*',
+    './_build/'
     // we don't want to clean this file though so we negate the pattern
     //'!dist/mobile/deploy.json'
   ], cb);
@@ -229,6 +230,22 @@ gulp.task('default', ['browser-sync', 'sass', 'minify-css'], function () {
 });
 
 /**
+ * Count build foulder size
+ */
+gulp.task('build:size', function () {
+  var s = size();
+
+  return gulp.src('./_build/**/*.*')
+    .pipe(s)
+    .pipe(notify({
+      onLast: true,
+      message: function() {
+        return 'Total build size ' + s.prettySize;
+      }
+    }));
+});
+
+/**
  * Build Task:
  * 1. clean _build folder
  * 2. compile SASS files, minify and uncss compiled css
@@ -236,19 +253,20 @@ gulp.task('default', ['browser-sync', 'sass', 'minify-css'], function () {
  * 4. build index.html and change base tag into _build folder
  * 5. copy fonts
  * 6. copy components folder - directives, services etc., only html
- * 7. copy views TODO: templateCache
+ * 7. copy views folder - directives, services etc., only html
+ * 8. show build folder size
+ * 9. copy views TODO: templateCache
  */
-gulp.task('build', ['clean:build', 'sass:build', 'images', 'usemin', 'fonts', 'components', 'views'],
-  function() {
-    var s = size();
-
-    return gulp.src('./_build/**/*.*')
-      .pipe(s)
-      .pipe(notify({
-        onLast: true,
-        message: function() {
-          return 'Total size ' + s.prettySize;
-        }
-      }));
-  });
+gulp.task('build', function(callback) {
+  runSequence(
+    'clean:build',
+    'sass:build',
+    'images',
+    'usemin',
+    'fonts',
+    'components',
+    'views',
+    'build:size',
+    callback);
+});
 

@@ -1,6 +1,6 @@
 /******************************************************************
 
-Mobile and up
+Mobile
 
 ******************************************************************/
 
@@ -14,8 +14,8 @@ body {
 	line-height: 1.5;
 	color: $text-color;
 	background-color: $gray;
-  	-webkit-font-smoothing: antialiased;
-  	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 html {
@@ -26,6 +26,12 @@ html {
 
 *, *:before, *:after {
   box-sizing: inherit;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
 }
 
 /*********************
@@ -159,19 +165,8 @@ NAVIGATION STYLES
 			text-decoration: none;
 			padding: 0.75em;
 		}
-
-	} /* end .menu li */
-
-	/* highlight current page */
-	li.current-menu-item,
-	li.current_page_item,
-	li.current_page_ancestor {
-
-		a {}
-
-	}  /* end current highlighters */
-
-} /* end .nav */
+	}
+}
 
 
 /*********************
@@ -180,357 +175,6 @@ POSTS & CONTENT STYLES
 
 #content {
 	margin-top: 1.5em;
-}
-
-		.hentry {
-			background-color: $white;
-			border-radius: 3px;
-			margin-bottom: 1.5em;
-			border: 1px solid $border-color;
-
-			header {
-				border-bottom: 1px solid $light-gray;
-				padding: 1.5em;
-			}
-
-			footer {
-				padding: 1.5em;
-				border-top: 1px solid $light-gray;
-
-				p {
-					margin: 0;
-				}
-			}
-
-		} /* end .hentry */
-
-		/* post meta */
-		.byline {
-			color: $meta-gray;
-			font-style: italic;
-			margin: 0;
-
-			time {}
-		}
-
-		/* entry content */
-		.entry-content {
-			padding: 1.5em 1.5em 0;
-
-			p {
-				margin: 0 0 1.5em;
-			}
-
-			table {
-				width: 100%;
-				border: 1px solid $gray;
-				margin-bottom: 1.5em;
-
-				caption {
-					margin: 0 0 7px;
-					font-size: 0.75em;
-					color: $meta-gray;
-					text-transform: uppercase;
-					letter-spacing: 1px;
-				}
-			}
-
-			tr {
-				border-bottom: 1px solid $gray;
-
-				&:nth-child(even) {
-					background-color: $light-gray;
-				}
-			}
-
-			td {
-				padding: 7px;
-				border-right: 1px solid $gray;
-
-				&:last-child {
-					border-right: 0;
-				}
-			}
-
-			th {
-				background-color: $light-gray;
-				border-bottom: 1px solid $gray;
-				border-right: 1px solid $gray;
-
-				&:last-child {
-					border-right: 0;
-				}
-			}
-
-			blockquote {
-				margin: 0 0 1.5em 0.75em;
-				padding: 0 0 0 0.75em;
-				border-left: 3px solid $blue;
-				font-style: italic;
-				color: $meta-gray;
-
-				&:before {}
-
-			}
-
-		} /* end .entry-content */
-
-		/* image gallery styles */
-		.gallery {
-
-			dl {
-
-				a {}
-
-				img {}
-
-			}
-
-			dt {}
-
-			dd {}
-
-		} /* end .gallery */
-
-	// the tag output
-	.tags {
-		margin: 0;
-	}
-
-/******************************************************************
-COMMENT STYLES
-******************************************************************/
-
-/* h3 comment title */
-#comments-title {
-	padding: 0.75em;
-	margin: 0;
-	border-top: 1px solid $light-gray;
-}
-
-.comment-nav {
-
-	ul {
-
-		li {}
-
-	}
-}
-
-.commentlist {
-	margin: 0;
-	list-style-type: none;
-}
-
-.comment {
-	position: relative;
-	clear: both;
-	overflow: hidden;
-	padding: 1.5em;
-	border-bottom: 1px solid $light-gray;
-
-	.comment-author {
-		padding: 7px;
-		border: 0;
-	}
-
-	/* vcard */
-	.vcard {
-		margin-left: 50px;
-
-		cite.fn {
-			font-weight: 700;
-			font-style: normal;
-
-			a.url {}
-
-		}
-
-		time {
-			display: block;
-			font-size: 0.9em;
-			font-style: italic;
-
-			a {
-				color: $meta-gray;
-				text-decoration: none;
-
-				&:hover {
-					text-decoration: underline;
-				}
-
-			}
-
-		}
-
-		.photo {}
-
-		.avatar {
-			position: absolute;
-			left: 16px;
-			border-radius: 50%;
-		}
-
-	} /* end .commentlist .vcard */
-
-	&:last-child {
-		margin-bottom: 0;
-	}
-
-	.children {
-		margin: 0;
-	} /* end children */
-
-
-	&[class*=depth-] {
-		margin-top: 1.1em;
-	}
-
-	&.depth-1 {
-		margin-left: 0;
-		margin-top: 0;
-	}
-
-	&:not(.depth-1) {
-		margin-top: 0;
-		margin-left: 7px;
-		padding: 7px;
-	}
-
-	/* general comment classes */
-	&.alt {}
-	&.odd {
-		background-color: $white;
-	}
-	&.even {
-		background: $light-gray;
-	}
-}
-
-/* comment content */
-.comment_content {
-
-	p {
-		margin: 0.7335em 0 1.5em;
-		font-size: 1em;
-		line-height: 1.5em;
-	}
-
-} /* end .commentlist .comment_content */
-
-/* comment reply link */
-.comment-reply-link {
-	@extend .blue-btn;
-	font-size: 0.9em;
-	float: right;
-} /* end .commentlist .comment-reply-link */
-
-/* edit comment link */
-.comment-edit-link {
-	font-style: italic;
-	margin: 0 7px;
-	text-decoration: none;
-	font-size: 0.9em;
-}
-
-
-/******************************************************************
-COMMENT FORM STYLES
-******************************************************************/
-
-.comment-respond {
-	@extend .cf;
-	padding: 1.5em;
-	border-top: 1px solid $light-gray;
-}
-
-	#reply-title {
-		margin: 0;
-	}
-
-	.logged-in-as {
-		color: $meta-gray;
-		font-style: italic;
-		margin: 0;
-
-		a {
-			color: $text-color;
-		}
-	}
-
-	.comment-form-comment {
-		margin: 1.5em 0 0.75em;
-	}
-
-	.form-allowed-tags {
-		padding: 1.5em;
-		background-color: $light-gray;
-		font-size: 0.9em;
-	}
-
-	/* comment submit button */
-	#submit {
-		@extend .blue-btn;
-		float: right;
-		font-size: 1em;
-	}
-
-	/* comment form title */
-	#comment-form-title {
-		margin: 0 0 1.1em;
-	}
-
-	/* cancel comment reply link */
-	#cancel-comment-reply {
-		a {}
-	}
-
-	/* logged in comments */
-	.comments-logged-in-as {}
-
-	/* allowed tags */
-	#allowed_tags {
-		margin: 1.5em 10px 0.7335em 0;
-	}
-
-	/* no comments */
-	.nocomments {
-		margin: 0 20px 1.1em;
-	}
-
-/*********************
-SIDEBARS & ASIDES
-*********************/
-
-.sidebar {
-
-}
-
-.widget {
-
-	ul {
-
-		li {
-
-			&:first-child {}
-
-			&:last-child {}
-
-			a {}
-
-			/* deep nesting */
-			ul {}
-		}
-	}
-}
-
-.no-widgets {
-	background-color: $white;
-	padding: 1.5em;
-	text-align: center;
-	border: 1px solid $border-color;
-	border-radius: 2px;
-	margin-bottom: 1.5em;
 }
 
 /*********************
@@ -542,13 +186,3 @@ FOOTER STYLES
 	background-color: $black;
 	color: $light-gray;
 }
-
-.footer-links {
-
-	ul {
-
-		li {}
-	}
-} /* end .footer-links */
-
-.copyright {}
