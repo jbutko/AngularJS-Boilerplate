@@ -1,0 +1,171 @@
+/******************************************************************
+
+768px and up
+
+******************************************************************/
+
+
+/*********************
+GENERAL STYLES
+*********************/
+
+body {
+	font-family: $font;
+	background: transparent url('../../images/bg.jpg') 0 0 repeat;
+}
+
+/*********************
+LAYOUT & GRID STYLES
+*********************/
+
+.wrap {
+	width: 760px;
+}
+
+/*********************
+HEADER STYLES
+*********************/
+
+.header {
+
+	a {
+		font-weight: $bold;
+	}
+}
+
+#logo {
+	margin: 0;
+	line-height: 1;
+}
+
+.icons {
+	position: absolute;
+	top: 15px;
+	right: 50px;
+
+	a {
+		display: inline-block;
+		margin-right: 20px;
+	}
+
+	img {
+		vertical-align: text-top;
+	}
+}
+
+/*********************
+NAVIGATION STYLES
+*********************/
+
+.nav {
+	border: 0;
+
+	ul {
+		background:$black;
+		margin-top:0;
+	}
+
+	li {
+		position: relative;
+
+		a {
+			border-bottom: 0;
+
+			&:hover, &:focus {
+				color: $white;
+				text-decoration: underline;
+			}
+		}
+
+		ul.sub-menu,
+		ul.children {
+			margin-top: 0;
+			border: 1px solid #ccc;
+			border-top: 0;
+			position: absolute;
+			visibility: hidden;
+			z-index: 8999;
+
+			li {
+
+				a {
+					padding-left: 10px;
+					border-right: 0;
+					display: block;
+					width: 180px;
+					border-bottom: 1px solid #ccc;
+				}
+
+				&:last-child {
+
+					a {
+						border-bottom: 0;
+					}
+				}
+
+				ul {
+					top:0;
+					left:100%;
+				}
+			}
+		}
+
+		/* showing sub-menus */
+		&:hover > ul {
+			top: auto;
+			visibility:visible;
+		}
+
+	} /* end .menu ul li */
+
+} /* end .nav */
+
+/*********************
+SIDEBARS & ASIDES
+*********************/
+
+.sidebar {
+	margin-top: 2.2em;
+}
+
+	.widgettitle {
+		border-bottom: 2px solid #444;
+		margin-bottom: 0.75em;
+	}
+
+	.widget {
+		padding: 0 10px;
+		margin: 2.2em 0;
+
+		ul {
+			li {
+				margin-bottom: 0.75em;
+
+				ul {
+					margin-top: 0.75em;
+					padding-left: 1em;
+				}
+			}
+		}
+	}
+
+/*********************
+FOOTER STYLES
+*********************/
+
+.footer-links {
+	ul {
+		li {
+			a {
+				&:hover {}
+			}
+			/*
+			be careful with the depth of your menus.
+			it's very rare to have multi-depth menus in
+			the footer.
+			*/
+			ul {}
+		}
+	}
+} /* end .footer-links */
+

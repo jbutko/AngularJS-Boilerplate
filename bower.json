@@ -1,0 +1,28 @@
+{
+  "name": "Angular Boilerplate",
+  "version": "1.0.0",
+  "authors": [
+    "jozef butko <jbutko@gmail.com>"
+  ],
+  "description": "Description goes here",
+  "main": "app.js",
+  "keywords": [
+    "angularjs"
+  ],
+  "license": "MIT",
+  "homepage": "www.jozefbutko.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.3.13",
+    "angular-route": "~1.3.13",
+    "angular-sanitize": "~1.3.13",
+    "owl.carousel": "https://github.com/smashingboxes/OwlCarousel2.git"
+  }
+}

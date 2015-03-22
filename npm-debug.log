@@ -1,0 +1,29 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'gulp-imagemin',
+1 verbose cli   '--save-dev' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.32
+4 verbose node symlink C:\Program Files\nodejs\\node.exe
+5 error Error: Invalid name: "Angular Boilerplate"
+5 error     at ensureValidName (C:\Program Files\nodejs\node_modules\npm\node_modules\read-package-json\node_modules\normalize-package-data\lib\fixer.js:315:15)
+5 error     at Object.module.exports.fixNameField (C:\Program Files\nodejs\node_modules\npm\node_modules\read-package-json\node_modules\normalize-package-data\lib\fixer.js:204:5)
+5 error     at C:\Program Files\nodejs\node_modules\npm\node_modules\read-package-json\node_modules\normalize-package-data\lib\normalize.js:30:38
+5 error     at Array.forEach (native)
+5 error     at normalize (C:\Program Files\nodejs\node_modules\npm\node_modules\read-package-json\node_modules\normalize-package-data\lib\normalize.js:29:15)
+5 error     at final (C:\Program Files\nodejs\node_modules\npm\node_modules\read-package-json\read-json.js:342:33)
+5 error     at then (C:\Program Files\nodejs\node_modules\npm\node_modules\read-package-json\read-json.js:126:33)
+5 error     at C:\Program Files\nodejs\node_modules\npm\node_modules\read-package-json\read-json.js:316:48
+5 error     at evalmachine.<anonymous>:207:20
+5 error     at OpenReq.Req.done (C:\Program Files\nodejs\node_modules\npm\node_modules\graceful-fs\graceful-fs.js:141:5)
+6 error If you need help, you may report this *entire* log,
+6 error including the npm and node versions, at:
+6 error     <http://github.com/npm/npm/issues>
+7 error System Windows_NT 6.1.7601
+8 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "gulp-imagemin" "--save-dev"
+9 error cwd C:\dodo\projects\- pers\Angular Boilerplate
+10 error node -v v0.10.32
+11 error npm -v 1.4.28
+12 verbose exit [ 1, true ]

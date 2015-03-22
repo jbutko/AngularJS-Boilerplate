@@ -1,0 +1,84 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-csp="" ng-app="boilerplate"> <!--<![endif]-->
+
+	<head>
+		<!-- build:base -->
+		<base href="/">
+		<!-- endbuild -->
+		<meta charset="utf-8">
+		<title>Angular Boilerplate</title>
+		<meta name="description" content="">
+		<!-- mobile meta (hooray!) -->
+		<meta name="HandheldFriendly" content="True">
+		<meta name="MobileOptimized" content="320">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+		<link rel="shortcut icon" href="images/favicon.ico">
+
+		<!--[if IE]>
+			<link rel="shortcut icon" href="favicon.ico">
+		<![endif]-->
+		<!-- or, set /favicon.ico for IE10 win -->
+		<meta name="msapplication-TileColor" content="#f01d4f">
+
+		<!-- fire up adaptive-images script, more info: adaptive-images.com -->
+		<script>document.cookie='resolution='+Math.max(screen.width,screen.height)+'; path=/';</script>
+
+		<!-- Slider CSS -->
+		<!-- build:css css/style.css -->
+		<link rel="stylesheet" href="bower_components/owl.carousel/dist/assets/owl.carousel.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<!-- endbuild -->
+
+	</head>
+
+	<body class="main-wrapper">
+
+		<!-- Navigation -->
+		<main-nav></main-nav>
+
+		<!-- MAIN CONTAINER FOR ANGULAR TEMPLATES -->
+		<div data-ng-view="" class="container-fluid"></div>
+
+	</body>
+
+	<!-- Vendors -->
+	<!-- build:nonangularlibs js/nonangularlibs.js -->
+	<script src="js/nonangular/jquery-1.11.2.min.js"></script>
+	<!-- endbuild -->
+
+	<!-- Non-angular libraries -->
+	<!-- build:libs js/libs.js -->
+	<script type="text/javascript" src="js/nonangular/lodash.min.js"></script>
+	<script type="text/javascript" src="js/scripts.js"></script>
+	<script type="text/javascript" src="bower_components/owl.carousel/dist/owl.carousel.min.js"></script>
+	<!-- endbuild -->
+
+	<!-- Angular external libraries for application -->
+	<!-- build:angularlibs js/angularlibs.js -->
+	<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+	<script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
+	<script type="text/javascript" src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+	<!-- endbuild -->
+
+	<!-- Angular components -->
+	<!-- build:appcomponents js/appcomponents.js -->
+	<script type="text/javascript" src="app/app.js"></script>
+	<script type="text/javascript" src="app/config.js"></script>
+	<script type="text/javascript" src="components/services/LocalStorage.service.js"></script>
+	<script type="text/javascript" src="components/services/queryService.service.js"></script>
+	<script type="text/javascript" src="components/directives/main.nav.directive.js"></script>
+	<script type="text/javascript" src="components/directives/responsive.nav.directive.js"></script>
+	<script type="text/javascript" src="components/directives/owl.slider.directive.js"></script>
+	<!-- endbuild -->
+
+	<!-- Application sections -->
+	<!-- build:mainapp js/mainapp.js -->
+	<script type="text/javascript" src="app/factory.js"></script>
+	<script type="text/javascript" src="app/controller.js"></script>
+	<!-- endbuild -->
+
+</html>

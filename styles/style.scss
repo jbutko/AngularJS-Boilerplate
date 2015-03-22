@@ -1,0 +1,110 @@
+/******************************************************************
+
+Site Name: AngularJS Boilerplate
+Code: Jozef Butko - jozefbutko.com/resume
+Date: Mar 2015
+
+******************************************************************/
+
+// normalize: http://necolas.github.io/normalize.css/
+@import "partials/normalize";
+
+// Sass variables
+@import "partials/variables";
+
+// Helpers
+@import "partials/helpers";
+
+// typography
+@import "partials/typography";
+
+// Sass functions
+@import "partials/functions";
+
+// import mixins
+@import "partials/mixins";
+
+// the grid
+@import "partials/grid";
+
+/*********************
+IMPORTING MODULES
+*********************/
+
+// alert boxes
+@import "modules/alerts";
+
+// buttons
+@import "modules/buttons";
+
+// forms (inputs & labels)
+@import "modules/forms";
+
+/*********************
+BASE (MOBILE) SIZE
+*********************/
+
+// styles in base.scss
+@import "breakpoints/base";
+
+/*********************
+LARGER MOBILE DEVICES
+*********************/
+@media only screen and (min-width: 481px) {
+
+	// styles in 481up.scss
+	@import "breakpoints/481up";
+
+} // end of media query
+
+/*********************
+TABLET & SMALLER LAPTOPS
+*********************/
+@media only screen and (min-width: 768px) {
+
+	// styles in 768up.scss
+	@import "breakpoints/768up";
+
+} // end of media query
+
+/*********************
+DESKTOP
+*********************/
+@media only screen and (min-width: 1030px) {
+
+	// styles in 1030up.scss
+	@import "breakpoints/1030up";
+
+} // end of media query
+
+/*********************
+LARGE VIEWING SIZE
+*********************/
+@media only screen and (min-width: 1240px) {
+
+	// styles in 1240up.scss
+	@import "breakpoints/1240up";
+
+} // end of media query
+
+/*********************
+RETINA (2x RESOLUTION DEVICES)
+*********************/
+// @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+//        only screen and (min--moz-device-pixel-ratio: 1.5),
+//        only screen and (min-device-pixel-ratio: 1.5) {
+
+// 	// styles in 2x.scss
+// 	@import "breakpoints/2x";
+
+// } // end of media query
+
+/*********************
+PRINT STYLESHEET
+*********************/
+@media print {
+
+	// styles in print.scss
+	@import "partials/print";
+
+}
