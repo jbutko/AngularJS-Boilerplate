@@ -11,11 +11,13 @@
 ;(function() {
 
 
-  angular.module('boilerplate', [
+  angular
+    .module('boilerplate', [
       'ngRoute',
       'ngSanitize'
     ])
     .config(['$routeProvider', '$locationProvider', '$httpProvider', '$compileProvider', config]);
+    
 
   function config($routeProvider, $locationProvider, $httpProvider, $compileProvider) {
 

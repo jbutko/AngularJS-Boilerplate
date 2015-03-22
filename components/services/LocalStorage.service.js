@@ -24,9 +24,11 @@
      * @date      28/11/2014
      *
      */
-    angular.module('boilerplate').factory('LocalStorage', [
+    angular
+      .module('boilerplate')
+      .factory('LocalStorage', [
         '$window', '$rootScope', LocalStorageService
-    ]);
+      ]);
 
 
     //////////////// factory

@@ -12,6 +12,7 @@ npm install && bower install
 ```bash
 gulp
 ```
+- all SCSS/HTML will be watched for changes and injected into browser thanks to BrowserSync
 
 ##3. Build production version
 ```bash
