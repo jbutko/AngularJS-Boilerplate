@@ -78,10 +78,10 @@ gulp.task('minify-js', function() {
 
 // minify CSS
 gulp.task('minify-css', function() {
-  gulp.src(['./css/**/*.css', '!./css/**/*.min.css'])
+  gulp.src(['./styles/**/*.css', '!./styles/**/*.min.css'])
     .pipe(rename({suffix: '.min'}))
     .pipe(minifyCSS({keepBreaks:true}))
-    .pipe(gulp.dest('./css/'))
+    .pipe(gulp.dest('./styles/'))
     .pipe(gulp.dest('./_build/css/'));
 });
 
@@ -176,7 +176,7 @@ gulp.task('sass:build', function() {
       aggressiveMerging: false,
       advanced: false
     }))
-    .pipe(gulp.dest('css'))
+    .pipe(gulp.dest('_build/css'))
     .pipe(s)
     .pipe(notify({
       onLast: true,
@@ -216,7 +216,7 @@ gulp.task('bs-reload', function () {
 // This default task will run BrowserSync & then use Gulp to watch files.
 // When a file is changed, an event is emitted to BrowserSync with the filepath.
 gulp.task('default', ['browser-sync', 'sass', 'minify-css'], function () {
-    gulp.watch('css/*.css', function (file) {
+    gulp.watch('styles/*.css', function (file) {
         if (file.type === "changed") {
             reload(file.path);
         }
