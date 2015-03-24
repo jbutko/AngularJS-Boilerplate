@@ -1,20 +1,20 @@
 # AngularJS-Boilerplate
 Simple AngularJS Boilerplate to kick start your new project with SASS support and Gulp watch/build tasks
 
-##1. Setup
+## 1. Setup
 ```bash
 npm install && bower install
 ```
 - install all dependencies
 
 
-##2. Watch files
+## 2. Watch files
 ```bash
 gulp
 ```
 - all SCSS/HTML will be watched for changes and injected into browser thanks to BrowserSync
 
-##3. Build production version
+## 3. Build production version
 ```bash
 gulp build
 ```
@@ -28,13 +28,13 @@ gulp build
 * copy views HTML files
 
 
-##Contact
+## Contact
 Copyright (C) 2015 Jozef Butko<br>
 [www.jozefbutko.com/resume](http://www.jozefbutko.com/resume)<br>
 [www.github.com/jbutko](http://www.github.com/jbutko)<br>
 [@jozefbutko](http://www.twitter.com/jozefbutko)
 
-##Changelog
-###1.0.0
+## Changelog
+### 1.0.0
 - initial release<br>
 22.03.2015
