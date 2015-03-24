@@ -8,7 +8,7 @@
    * @ngdoc  Directive
    *
    * @example
-   * <input type="text" clear-input/>
+   * <main-nav><main-nav/>
    *
    */
   angular.module('boilerplate')
