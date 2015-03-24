@@ -1,5 +1,5 @@
 {
-  "name": "angular-boilerplate",
+  "name": "angularjs-boilerplate",
   "version": "1.0.0",
   "license": "MIT",
   "description": "Simple AngularJS Boilerplate to kick start your new project with SASS support and Gulp watch/build tasks",
