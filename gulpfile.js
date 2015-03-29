@@ -1,18 +1,17 @@
 /**
  * @author  Jozef Butko
- * @date    Mar/2014
- * @status  Work in progress
+ * @date    March 2015
+ *
+ * AngularJS Boilerplate: Build, watch and other useful tasks
  *
  * The following build process consists of these steps:
  * 1. clean _build folder
  * 2. compile SASS files, minify and uncss compiled css
  * 3. copy and minimize images
- * 4. build index.html and change base tag into _build folder
- * 5. copy fonts
- * 6. copy components folder - directives, services etc., only html
- * 7. copy views folder - directives, services etc., only html
- * 8. show build folder size
- * 9. copy views TODO: templateCache
+ * 4. copy all HTML files into $templateCache
+ * 5. build index.html and change base tag into _build folder
+ * 6. copy fonts
+ * 7. show build folder size
  * 
  */
 var browserSync     = require('browser-sync');
@@ -39,8 +38,8 @@ var inject          = require('gulp-inject');
 var angularFilesort = require('gulp-angular-filesort');
 var uncss           = require('gulp-uncss');
 var htmlreplace     = require('gulp-html-replace');
-var $               = require('gulp-load-plugins')(); // TODO
 var runSequence     = require('run-sequence');
+var templateCache   = require('gulp-angular-templatecache');
 
 
 // optimize images
@@ -105,18 +104,22 @@ gulp.task('fonts', function() {
     .pipe(gulp.dest('./_build/fonts'));
 });
 
-// copy components html
-gulp.task('components', function() {
-    gulp.src('./components/**/*.html')
-    .pipe(changed('./_build/components'))
-    .pipe(gulp.dest('./_build/components'));
+// start webserver
+gulp.task('server', function(done) {
+  return browserSync({
+    server: {
+      baseDir: './'
+    }
+  }, done);
 });
 
-// copy views html
-gulp.task('views', function() {
-    gulp.src('./views/**/*.html')
-    .pipe(changed('./_build/views'))
-    .pipe(gulp.dest('./_build/views'));
+// start webserver from _build folder to check how it will look in production
+gulp.task('server-build', function(done) {
+  return browserSync({
+    server: {
+      baseDir: './_build/'
+    }
+  }, done);
 });
 
 // delete build folder
@@ -146,7 +149,6 @@ gulp.task('sass', function () {
           title: 'SASS Failed',
           message: 'Error(s) occurred during compile!'
         }))
-        .pipe(autoprefixer('last 3 version'))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('styles'))
         .pipe(reload({stream: true}))
@@ -194,9 +196,9 @@ require('events').EventEmitter.prototype._maxListeners = 100;
 // script/css concatenation
 gulp.task('usemin', function () {
   return gulp.src('./index.html')
-      // base path replace
+      // add templates path
       .pipe(htmlreplace({
-          'base': '<base href="/_build/">'
+        'templates': '<script type="text/javascript" src="js/templates.js"></script>'
       }))
       .pipe(usemin({
         css: [ minifyCSS(), 'concat' ],
@@ -206,11 +208,44 @@ gulp.task('usemin', function () {
       .pipe(gulp.dest('./_build/'));
 });
 
-// Reload all Browsers
+/*
+ * make templateCache out of all HTML files
+ */
+gulp.task('templates', function() {
+  return gulp.src([
+    './**/*.html',
+    '!bower_components/**/*.*',
+    '!node_modules/**/*.*',
+    '!_build/**/*.*'
+    ])
+    .pipe(templateCache({
+      module: 'boilerplate'
+    }))
+    .pipe(gulp.dest('_build/js'));
+});
+
+/**
+ * Reload all Browsers
+ */
 gulp.task('bs-reload', function () {
     browserSync.reload();
 });
 
+/**
+ * Count build foulder size
+ */
+gulp.task('build:size', function () {
+  var s = size();
+
+  return gulp.src('./_build/**/*.*')
+    .pipe(s)
+    .pipe(notify({
+      onLast: true,
+      message: function() {
+        return 'Total build size ' + s.prettySize;
+      }
+    }));
+});
 
 // Default task to be run with `gulp`
 // This default task will run BrowserSync & then use Gulp to watch files.
@@ -230,42 +265,23 @@ gulp.task('default', ['browser-sync', 'sass', 'minify-css'], function () {
 });
 
 /**
- * Count build foulder size
- */
-gulp.task('build:size', function () {
-  var s = size();
-
-  return gulp.src('./_build/**/*.*')
-    .pipe(s)
-    .pipe(notify({
-      onLast: true,
-      message: function() {
-        return 'Total build size ' + s.prettySize;
-      }
-    }));
-});
-
-/**
  * Build Task:
  * 1. clean _build folder
  * 2. compile SASS files, minify and uncss compiled css
  * 3. copy and minimize images
- * 4. build index.html and change base tag into _build folder
- * 5. copy fonts
- * 6. copy components folder - directives, services etc., only html
- * 7. copy views folder - directives, services etc., only html
- * 8. show build folder size
- * 9. copy views TODO: templateCache
+ * 4. copy all HTML files into $templateCache
+ * 5. build index.html and change base tag into _build folder
+ * 6. copy fonts
+ * 7. show build folder size
  */
 gulp.task('build', function(callback) {
   runSequence(
     'clean:build',
     'sass:build',
     'images',
+    'templates',
     'usemin',
     'fonts',
-    'components',
-    'views',
     'build:size',
     callback);
 });

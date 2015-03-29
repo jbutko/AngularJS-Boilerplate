@@ -9,18 +9,17 @@ GENERAL STYLES
 *********************/
 
 body {
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	background-color: $gray;
+	color: $text-color;
 	font-family: $font;
 	font-size: 100%;
 	line-height: 1.5;
-	color: $text-color;
-	background-color: $gray;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
 }
 
 html {
 	height: 100%;
-	overflow-x: hidden;
 	box-sizing: border-box;
 }
 
@@ -112,12 +111,12 @@ HEADER STYLES
 
 .header {
 	background-color: $white;
-	max-height: 50px;
 }
 
 #inner-header {
-	width: 1000px;
+	width: 100%;
 	padding: 0 50px;
+	text-align: center;
 
 	a {
 		font-size: $small;
@@ -143,6 +142,7 @@ HEADER STYLES
 
 #logo {
 	margin: 0.75em 0;
+	display: none;
 
 	a {
 		color: $white;
@@ -153,9 +153,10 @@ HEADER STYLES
 NAVIGATION STYLES
 *********************/
 
-.nav {
+.main-nav {
 	border-bottom: 0;
 	margin: 0;
+	display: none;
 
 	li {
 
@@ -168,6 +169,37 @@ NAVIGATION STYLES
 	}
 }
 
+
+/*********************
+RESPONSIVE NAV
+*********************/
+
+.hamburger {
+
+	&:hover,
+	&:focus {
+		text-decoration: none;
+	}
+	
+	&:before {
+		content:'\2261';
+		font-size: 24px;
+		font-weight: bold;
+		color: #555;
+	}
+}
+
+.responsive-wrapper {
+
+	a {
+		display: block;
+		width: 100%;
+		line-height: 2;
+		text-align: center;
+		background: #fff;
+		color: $text-color;
+	}
+}
 
 /*********************
 POSTS & CONTENT STYLES

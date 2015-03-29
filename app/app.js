@@ -4,21 +4,33 @@
  * @description           Description
  * @author                Jozef Butko // www.jozefbutko.com/resume
  * @url                   www.jozefbutko.com
- * @version               1.0.0
+ * @version               1.1.0
  * @date                  March 2015
  * 
  */
 ;(function() {
 
 
+  /**
+   * Definition of the main app module and its dependencies
+   */
   angular
     .module('boilerplate', [
       'ngRoute',
       'ngSanitize'
     ])
-    .config(['$routeProvider', '$locationProvider', '$httpProvider', '$compileProvider', config]);
+    .config(config);
+
+  config.$inject = ['$routeProvider', '$locationProvider', '$httpProvider', '$compileProvider'];
     
 
+  /**
+   * Routing of whole app
+   *
+   * You can leave it here in the config section or take it out
+   * into separate file
+   * 
+   */
   function config($routeProvider, $locationProvider, $httpProvider, $compileProvider) {
 
     $locationProvider.html5Mode(false);
@@ -50,6 +62,11 @@
   }
 
 
+  /**
+   * You can intercept any request or response inside authInterceptor
+   * or handle what should happend on 40x, 50x errors
+   * 
+   */
   angular
     .module('boilerplate')
     .factory('authInterceptor', function($rootScope, $q, LocalStorage, $location) {

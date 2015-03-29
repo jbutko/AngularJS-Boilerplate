@@ -1,5 +1,9 @@
 /**
- * Main controller
+ * Main application controller
+ *
+ * You can use this controller for your whole app if it is small
+ * or you can have separate controllers for each logical section
+ * 
  */
 ;(function() {
 
@@ -7,14 +11,12 @@
     .module('boilerplate')
     .controller('MainController', MainController);
 
-  MainController.$inject = ['$location', '$scope', 'LocalStorage', 'QueryService', '$routeParams',
-    '$sce'
-  ];
+  MainController.$inject = ['LocalStorage', 'QueryService'];
 
 
-  function MainController($location, $scope, LocalStorage, QueryService,
-    $routeParams, $sce) {
+  function MainController(LocalStorage, QueryService) {
 
+    // 'controller as' syntax
     var self = this;
 
 
@@ -22,13 +24,13 @@
 
 
     /**
-     * Load themes from WP API
-     * @return {Object} Object with themes
+     * Load some data
+     * @return {Object} Returned object
      */
-    QueryService.query('GET', 'posts', {}, {})
-      .then(function(ovocie) {
-        self.ovocie = ovocie.data;
-      });
+    // QueryService.query('GET', 'posts', {}, {})
+    //   .then(function(ovocie) {
+    //     self.ovocie = ovocie.data;
+    //   });
   }
 
 

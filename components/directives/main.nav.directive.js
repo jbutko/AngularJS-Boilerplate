@@ -11,7 +11,8 @@
    * <main-nav><main-nav/>
    *
    */
-  angular.module('boilerplate')
+  angular
+    .module('boilerplate')
     .directive('mainNav', tinMainNav);
 
   function tinMainNav() {

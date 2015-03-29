@@ -1,16 +1,29 @@
 ;(function() {
+  
 
   'use strict';
 
 
-  angular.module('boilerplate')
+  /**
+   * Owl slider directive
+   *
+   * Usage:
+   * <div myslider></div>
+   *
+   * or
+   *
+   * <myslider></myslider>
+   * 
+   */
+  angular
+    .module('boilerplate')
     .directive('myslider', slider);
 
   function slider() {
 
     // Definition of directive
     var directiveDefinitionObject = {
-      restrict: 'A',
+      restrict: 'AE',
       link: function(scope, element, attrs) {
 
         scope.$watch(function() {
@@ -26,7 +39,6 @@
               dots: false,
               autoplay: true,
               navText: ''
-                //onTransitionEnd: center
             });
           });
         });

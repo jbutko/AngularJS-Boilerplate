@@ -14,7 +14,7 @@
    * @author    Jozef Butko
    * @example   Inject QueryService as the dependency and then use it this way:
    *
-   * QueryService.query('GET', 'users/user/', {personalID: $rootScope.currentUser}, {})
+   * QueryService.query('GET', 'users/user/', {get: query}, {post: params})
       .then(function(data) {
         console.log(data);
       }, function(error) {
@@ -42,7 +42,6 @@
 
 
   //////////////// factory
-  ///
 
 
 

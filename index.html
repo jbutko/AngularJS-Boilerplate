@@ -5,17 +5,16 @@
 <!--[if gt IE 8]><!--> <html lang="en" ng-csp="" ng-app="boilerplate"> <!--<![endif]-->
 
 	<head>
-		<!-- build:base -->
+
 		<base href="/">
-		<!-- endbuild -->
 		<meta charset="utf-8">
-		<title>Angular Boilerplate</title>
-		<meta name="description" content="">
-		<!-- mobile meta (hooray!) -->
+		<title>AngularJS Boilerplate</title>
+		<meta name="description" content="Simple AngularJS Boilerplate to kick start your new project with SASS support and Gulp watch/build tasks">
+
+		<!-- mobile meta -->
 		<meta name="HandheldFriendly" content="True">
 		<meta name="MobileOptimized" content="320">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
 		<link rel="shortcut icon" href="images/favicon.ico">
 
 		<!--[if IE]>
@@ -24,10 +23,7 @@
 		<!-- or, set /favicon.ico for IE10 win -->
 		<meta name="msapplication-TileColor" content="#f01d4f">
 
-		<!-- fire up adaptive-images script, more info: adaptive-images.com -->
-		<script>document.cookie='resolution='+Math.max(screen.width,screen.height)+'; path=/';</script>
-
-		<!-- Slider CSS -->
+		<!-- CSS -->
 		<!-- build:css css/style.css -->
 		<link rel="stylesheet" href="bower_components/owl.carousel/dist/assets/owl.carousel.min.css" />
 		<link rel="stylesheet" type="text/css" href="styles/style.css" />
@@ -79,6 +75,10 @@
 	<!-- build:mainapp js/mainapp.js -->
 	<script type="text/javascript" src="app/factory.js"></script>
 	<script type="text/javascript" src="app/controller.js"></script>
+	<!-- endbuild -->
+
+	<!-- templates from $templateCache -->
+	<!-- build:templates -->
 	<!-- endbuild -->
 
 </html>

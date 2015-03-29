@@ -21,7 +21,6 @@
      * LocalStorage.list();
      *
      * @version   1.0
-     * @date      28/11/2014
      *
      */
     angular
