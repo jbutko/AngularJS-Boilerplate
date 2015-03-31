@@ -46,6 +46,7 @@ gulp build
 * build index.html and change base tag into _build folder
 * copy fonts
 * show build folder size
+* less than 10 request in build version
 
 ## 4. Start webserver without watch task
 ```bash
