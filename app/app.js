@@ -16,8 +16,7 @@
    */
   angular
     .module('boilerplate', [
-      'ngRoute',
-      'ngSanitize'
+      'ngRoute'
     ])
     .config(config);
 
@@ -25,7 +24,7 @@
     
 
   /**
-   * Routing of whole app
+   * App routing
    *
    * You can leave it here in the config section or take it out
    * into separate file
@@ -79,7 +78,7 @@
           return config;
         },
 
-        // Catch 404 errors and redirect everythink
+        // Catch 404 errors
         responseError: function(response) {
           if (response.status === 404) {
             $location.path('/');
