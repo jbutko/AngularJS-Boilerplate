@@ -64,6 +64,10 @@ Copyright (C) 2015 Jozef Butko<br>
 [@jozefbutko](http://www.twitter.com/jozefbutko)
 
 ## Changelog
+### 1.1.1
+- opened responsive nav fix, css build .min appendix, live demo, github icons<br>
+31.03.2015
+
 ### 1.1.0
 - many improvements: responsive nav, code clean up, gulp angular templateCache
 support, gulp task for local server, SASS sourceMaps support<br>
