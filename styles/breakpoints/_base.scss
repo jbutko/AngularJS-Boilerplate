@@ -191,6 +191,8 @@ RESPONSIVE NAV
 
 .responsive-wrapper {
 
+	display: none;
+
 	a {
 		display: block;
 		width: 100%;
@@ -217,4 +219,10 @@ FOOTER STYLES
 	clear: both;
 	background-color: $black;
 	color: $light-gray;
+}
+
+
+/* Delete this */
+.github {
+	padding: 50px 0;
 }

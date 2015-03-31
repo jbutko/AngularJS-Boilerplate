@@ -155,6 +155,7 @@ gulp.task('sass', function () {
         .pipe(notify({ message: 'Styles task complete' }));
 });
 
+// SASS Build task
 gulp.task('sass:build', function() {
   var s = size();
 
@@ -163,21 +164,22 @@ gulp.task('sass:build', function() {
       style: 'compact'
     }))
     .pipe(autoprefixer('last 3 version'))
-    .pipe(uncss({
-      html: ['./index.html', './views/**/*.html', './components/**/*.html'],
-      ignore: [
-        '.index',
-        '.slick',
-        /\.owl+/,
-        /\.owl-next/,
-        /\.owl-prev/
-      ]
-    }))
+    // .pipe(uncss({
+    //   html: ['./index.html', './views/**/*.html', './components/**/*.html'],
+    //   ignore: [
+    //     '.index',
+    //     '.slick',
+    //     /\.owl+/,
+    //     /\.owl-next/,
+    //     /\.owl-prev/
+    //   ]
+    // }))
     .pipe(minifyCSS({
       keepBreaks: true,
       aggressiveMerging: false,
       advanced: false
     }))
+    .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest('_build/css'))
     .pipe(s)
     .pipe(notify({

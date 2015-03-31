@@ -102,7 +102,8 @@ a:link,a:visited:link{-webkit-tap-highlight-color:rgba(0,0,0,.3)}
 .main-nav{border-bottom:0;margin:0;display:none}
 .main-nav li a{display:block;color:#fff;padding:.75em}
 .hamburger:before{content:'\2261';font-size:24px;font-weight:700;color:#555}
-.responsive-wrapper a{display:block;width:100%;line-height:2;text-align:center;background:#fff}
+.responsive-wrapper{display:none}
+.responsive-wrapper a{display:block;width:100%;line-height:2;text-align:center;background:#fff;color:#5c6b80}
 #content{margin-top:1.5em}
 .footer{background-color:#231f20;color:#f8f9fa}
 @media only screen and (min-width:481px){.container{width:480px}}
