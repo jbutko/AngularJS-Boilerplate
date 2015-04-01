@@ -10,6 +10,7 @@ Simple AngularJS Boilerplate to kick start your new project with SASS support an
 * localStorage service for set, get, remove data
 * queryService $http wrapper to handle calls
 * clear folder structure
+* less than 10 request in build version
 
 ## Download
 ```bash
@@ -41,12 +42,11 @@ gulp build
 - this will process following tasks:
 * clean _build folder
 * compile SASS files, minify and uncss compiled css
-* copy and minimize images
+* copy and optimize images
 * copy all HTML files into $templateCache
-* build index.html and change base tag into _build folder
+* build index.html
 * copy fonts
 * show build folder size
-* less than 10 request in build version
 
 ## 4. Start webserver without watch task
 ```bash
