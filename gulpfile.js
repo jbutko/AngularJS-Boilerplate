@@ -164,16 +164,16 @@ gulp.task('sass:build', function() {
       style: 'compact'
     }))
     .pipe(autoprefixer('last 3 version'))
-    // .pipe(uncss({
-    //   html: ['./index.html', './views/**/*.html', './components/**/*.html'],
-    //   ignore: [
-    //     '.index',
-    //     '.slick',
-    //     /\.owl+/,
-    //     /\.owl-next/,
-    //     /\.owl-prev/
-    //   ]
-    // }))
+    .pipe(uncss({
+      html: ['./index.html', './views/**/*.html', './components/**/*.html'],
+      ignore: [
+        '.index',
+        '.slick',
+        /\.owl+/,
+        /\.owl-next/,
+        /\.owl-prev/
+      ]
+    }))
     .pipe(minifyCSS({
       keepBreaks: true,
       aggressiveMerging: false,
@@ -189,7 +189,6 @@ gulp.task('sass:build', function() {
       }
     }));
 });
-
 
 // BUGFIX: warning: possible EventEmitter memory leak detected. 11 listeners added.
 require('events').EventEmitter.prototype._maxListeners = 100;
