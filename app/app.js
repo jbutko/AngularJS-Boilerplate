@@ -4,7 +4,7 @@
  * @description           Description
  * @author                Jozef Butko // www.jozefbutko.com/resume
  * @url                   www.jozefbutko.com
- * @version               1.1.0
+ * @version               1.1.2
  * @date                  March 2015
  * 
  */

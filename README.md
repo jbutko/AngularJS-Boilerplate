@@ -29,6 +29,8 @@ npm install && bower install
 ```
 - install all dependencies
 
+** Note: ** If `npm install` fails during dependency installation it will be likely caused by `gulp-imagemin`. In that case remove `gulp-imagemin` dependency from `package.json`, run `npm install` again and then install `gulp-imagemin` separately with following command: `npm install gulp-imagemin --save-dev`
+
 ## 2. Watch files
 ```bash
 gulp
@@ -65,6 +67,10 @@ Copyright (C) 2015 Jozef Butko<br>
 [@jozefbutko](http://www.twitter.com/jozefbutko)
 
 ## Changelog
+### 1.1.2
+- package.json and gulpfile.js clean up<br>
+02.04.2015
+
 ### 1.1.1
 - opened responsive nav fix, css build .min appendix, live demo, github icons<br>
 31.03.2015

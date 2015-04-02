@@ -106,6 +106,7 @@ a:link,a:visited:link{-webkit-tap-highlight-color:rgba(0,0,0,.3)}
 .responsive-wrapper a{display:block;width:100%;line-height:2;text-align:center;background:#fff;color:#5c6b80}
 #content{margin-top:1.5em}
 .footer{background-color:#231f20;color:#f8f9fa}
+.github{padding:50px 0}
 @media only screen and (min-width:481px){.container{width:480px}}
 @media only screen and (min-width:768px){body{font-family:"Open Sans",Helvetica,Arial,sans-serif}
 .container{width:760px}
