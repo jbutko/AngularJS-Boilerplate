@@ -1,0 +1,36 @@
+<div class="container cf">
+    <div>
+       <h2>Download</h2>
+
+       <code>bower install angularjs-boilerplate</code><br>
+       or<br>
+       <code>git clone https://github.com/jbutko/AngularJS-Boilerplate.git</code><br>
+
+       <h2>1. Setup</h2>
+       <code>npm install &amp;&amp; bower install</code><br>
+       - install all dependencies<br>
+       <small><strong>Note:</strong> If npm install fails during dependency installation it will be likely caused by gulp-imagemin. In that case remove gulp-imagemin dependency from package.json, run npm install again and then install gulp-imagemin separately with following command: npm install gulp-imagemin --save-dev</small>
+
+       <h2>2. Watch files</h2>
+       <code>gulp</code><br>
+       - all SCSS/HTML will be watched for changes and injected into browser thanks to BrowserSync
+
+       <h2>3. Build production version</h2>
+       <code>gulp build</code><br>
+       - this will process following tasks:<br>
+       * clean _build folder<br>
+       * compile SASS files, minify and uncss compiled css<br>
+       * copy and optimize images<br>
+       * minify and copy all HTML files into $templateCache<br>
+       * build index.html<br>
+       * minify and copy all JS files<br>
+       * copy fonts<br>
+       * show build folder size<br>
+
+       <h2>4. Start webserver without watch task</h2>
+       <code>gulp server</code>
+
+       <h2>5. Start webserver from build folder</h2>
+       <code>gulp server-build</code>
+    </div>
+</div>

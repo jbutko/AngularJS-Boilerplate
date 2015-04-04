@@ -4,7 +4,7 @@
  * @description           Description
  * @author                Jozef Butko // www.jozefbutko.com/resume
  * @url                   www.jozefbutko.com
- * @version               1.1.2
+ * @version               1.1.4
  * @date                  March 2015
  * 
  */
@@ -20,8 +20,9 @@
     ])
     .config(config);
 
+  // safe dependency injection
+  // this prevents minification issues
   config.$inject = ['$routeProvider', '$locationProvider', '$httpProvider', '$compileProvider'];
-    
 
   /**
    * App routing
@@ -46,15 +47,14 @@
         controller: 'MainController',
         controllerAs: 'main'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
+      .when('/setup', {
+        templateUrl: 'views/setup.html',
         controller: 'MainController',
         controllerAs: 'main'
       })
       .otherwise({
         redirectTo: '/'
       });
-
 
     $httpProvider.interceptors.push('authInterceptor');
 
@@ -68,32 +68,47 @@
    */
   angular
     .module('boilerplate')
-    .factory('authInterceptor', function($rootScope, $q, LocalStorage, $location) {
+    .factory('authInterceptor', authInterceptor);
 
-      return {
+  authInterceptor.$inject = ['$rootScope', '$q', 'LocalStorage', '$location'];
 
-        // intercept every request
-        request: function(config) {
-          config.headers = config.headers || {};
-          return config;
-        },
+  function authInterceptor($rootScope, $q, LocalStorage, $location) {
 
-        // Catch 404 errors
-        responseError: function(response) {
-          if (response.status === 404) {
-            $location.path('/');
-            return $q.reject(response);
-          } else {
-            return $q.reject(response);
-          }
+    return {
+
+      // intercept every request
+      request: function(config) {
+        config.headers = config.headers || {};
+        return config;
+      },
+
+      // Catch 404 errors
+      responseError: function(response) {
+        if (response.status === 404) {
+          $location.path('/');
+          return $q.reject(response);
+        } else {
+          return $q.reject(response);
         }
-      };
-    })
-    .run(function($rootScope, $location) {
+      }
+    };
+  }
 
-      // put here everything that you need to run on page start
 
-    });
+  /**
+   * Run block
+   */
+  angular
+    .module('boilerplate')
+    .run(run);
+
+  run.$inject = ['$rootScope', '$location'];
+
+  function run($rootScope, $location) {
+
+    // put here everything that you need to run on page load
+
+  }
 
 
 })();

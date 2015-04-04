@@ -11,6 +11,8 @@ Simple AngularJS Boilerplate to kick start your new project with SASS support an
 * queryService $http wrapper to handle calls
 * clear folder structure
 * less than 10 request in build version
+* minified CSS and JS build files
+* google analytics snippet
 
 ## Download
 ```bash
@@ -45,8 +47,9 @@ gulp build
 * clean _build folder
 * compile SASS files, minify and uncss compiled css
 * copy and optimize images
-* copy all HTML files into $templateCache
+* minify and copy all HTML files into $templateCache
 * build index.html
+* minify and copy all JS files
 * copy fonts
 * show build folder size
 
@@ -67,12 +70,20 @@ Copyright (C) 2015 Jozef Butko<br>
 [@jozefbutko](http://www.twitter.com/jozefbutko)
 
 ## Changelog
+### 1.1.4
+- added minification of JS files in build task<br>
+- added favicon<br>
+- gulpfile.js beautify and clean up<br>
+- added owl carousel into demo<br>
+04.04.2015
+
 ### 1.1.3
 - index.html update: added browserupgrade tag<br>
 - index.html update: http-equiv meta tag, google analytics support<br>
 - comments update in gulpfile.js<br>
 - gulpfile.js formatting<br>
 - pull request #1: removed duplicate gulp require in gulpfile.js<br>
+04.04.2015
 
 ### 1.1.2
 - package.json and gulpfile.js clean up<br>

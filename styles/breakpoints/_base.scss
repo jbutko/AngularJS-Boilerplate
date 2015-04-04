@@ -204,11 +204,24 @@ RESPONSIVE NAV
 }
 
 /*********************
-POSTS & CONTENT STYLES
+MAIN PAGE
 *********************/
 
 #content {
 	margin-top: 1.5em;
+}
+
+// slider
+.slider {
+	margin-bottom: 30px;
+}
+
+.image-slider {
+	max-height: 400px;
+
+	img {
+		width: 100%;
+	}
 }
 
 /*********************

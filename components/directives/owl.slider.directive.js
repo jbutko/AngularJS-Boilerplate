@@ -8,11 +8,21 @@
    * Owl slider directive
    *
    * Usage:
-   * <div myslider></div>
+   * <div myslider>
+   *   <ul class="slider">
+   *     ...
+   *   </ul>
+   * </div>
    *
    * or
    *
-   * <myslider></myslider>
+   * <myslider>
+   *   <ul class="slider">
+   *     ...
+   *   </ul>
+   * </myslider>
+   *
+   * @url http://owlgraphic.com/owlcarousel/index.html#customizing
    * 
    */
   angular
@@ -27,18 +37,16 @@
       link: function(scope, element, attrs) {
 
         scope.$watch(function() {
-          angular.element(document).ready(function(i) {
-            $('.gallery').owlCarousel({
-              center: true,
+          angular.element(document).ready(function() {
+            $('.slider').owlCarousel({
+              autoPlay: 2500,
               items: 1,
-              singleItem: true,
-              itemsScaleUp: false,
-              loop: true,
+              //singleItem: true,
               margin: 0,
               nav: true,
               dots: false,
-              autoplay: true,
-              navText: ''
+              navText: '',
+              pauseOnHover: true
             });
           });
         });

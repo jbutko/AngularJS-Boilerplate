@@ -82,8 +82,8 @@ html{height:100%;box-sizing:border-box}
 *,:after,:before{box-sizing:inherit}
 ul{margin:0;padding:0}
 .wrap{width:96%;margin:0 auto}
-a,a:visited{color:#f8f9fa;text-decoration:none}
-a:focus,a:hover,a:visited:focus,a:visited:hover{color:#dde2e7;text-decoration:underline}
+a,a:visited{color:#231f20;text-decoration:none}
+a:focus,a:hover,a:visited:focus,a:visited:hover{color:#0b090a;text-decoration:underline}
 .h1 a,.h2 a,.h3 a,.h4 a,.h5 a,.hamburger:focus,.hamburger:hover,.main-nav li a,h1 a,h2 a,h3 a,h4 a,h5 a{text-decoration:none}
 a:link,a:visited:link{-webkit-tap-highlight-color:rgba(0,0,0,.3)}
 .h1,.h2,.h3,.h4,.h5,h1,h2,h3,h4,h5{text-rendering:optimizelegibility;font-weight:500}
@@ -105,8 +105,9 @@ a:link,a:visited:link{-webkit-tap-highlight-color:rgba(0,0,0,.3)}
 .responsive-wrapper{display:none}
 .responsive-wrapper a{display:block;width:100%;line-height:2;text-align:center;background:#fff;color:#5c6b80}
 #content{margin-top:1.5em}
+.slider{margin-bottom:30px}
+.image-slider{max-height:400px}
 .footer{background-color:#231f20;color:#f8f9fa}
-.github{padding:50px 0}
 @media only screen and (min-width:481px){.container{width:480px}}
 @media only screen and (min-width:768px){body{font-family:"Open Sans",Helvetica,Arial,sans-serif}
 .container{width:760px}
