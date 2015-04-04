@@ -9,7 +9,7 @@
  * 2. compile SASS files, minify and uncss compiled css
  * 3. copy and minimize images
  * 4. copy all HTML files into $templateCache
- * 5. build index.html and change base tag into _build folder
+ * 5. build index.html
  * 6. copy fonts
  * 7. show build folder size
  * 
@@ -206,7 +206,7 @@ gulp.task('usemin', function () {
       .pipe(gulp.dest('./_build/'));
 });
 
-// make templateCache out of all HTML files
+// make templateCache from all HTML files
 gulp.task('templates', function() {
   return gulp.src([
     './**/*.html',
@@ -262,9 +262,10 @@ gulp.task('default', ['browser-sync', 'sass', 'minify-css'], function () {
  * 2. compile SASS files, minify and uncss compiled css
  * 3. copy and minimize images
  * 4. copy all HTML files into $templateCache
- * 5. build index.html and change base tag into _build folder
+ * 5. build index.html
  * 6. copy fonts
  * 7. show build folder size
+ * 
  */
 gulp.task('build', function(callback) {
   runSequence(
