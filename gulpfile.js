@@ -56,7 +56,7 @@ gulp.task('images', function () {
         .pipe(gulp.dest('./_build/images'));
 });
 
-// Browser-sync task, only cares about compiled CSS
+// browser-sync task, only cares about compiled CSS
 gulp.task('browser-sync', function() {
     browserSync({
         server: {
@@ -94,7 +94,7 @@ gulp.task('minify-html', function() {
     .pipe(gulp.dest('./_build/'));
 });
 
-// Copy fonts from a module outside of our project (like Bower)
+// copy fonts from a module outside of our project (like Bower)
 gulp.task('fonts', function() {
     gulp.src('./fonts/**/*.{ttf,woff,eof,eot,svg}')
     .pipe(changed('./_build/fonts'))
@@ -136,7 +136,7 @@ gulp.task('concat', function() {
     .pipe(gulp.dest('./_build/'));
 });
 
-// Sass task, will run when any SCSS files change & BrowserSync
+// SASS task, will run when any SCSS files change & BrowserSync
 // will auto-update browsers
 gulp.task('sass', function () {
     return gulp.src('styles/style.scss')
@@ -206,9 +206,7 @@ gulp.task('usemin', function () {
       .pipe(gulp.dest('./_build/'));
 });
 
-/*
- * make templateCache out of all HTML files
- */
+// make templateCache out of all HTML files
 gulp.task('templates', function() {
   return gulp.src([
     './**/*.html',
@@ -222,16 +220,12 @@ gulp.task('templates', function() {
     .pipe(gulp.dest('_build/js'));
 });
 
-/**
- * Reload all Browsers
- */
+// reload all Browsers
 gulp.task('bs-reload', function () {
     browserSync.reload();
 });
 
-/**
- * Count build foulder size
- */
+// calculate build folder size
 gulp.task('build:size', function () {
   var s = size();
 
@@ -245,9 +239,9 @@ gulp.task('build:size', function () {
     }));
 });
 
-// Default task to be run with `gulp`
-// This default task will run BrowserSync & then use Gulp to watch files.
-// When a file is changed, an event is emitted to BrowserSync with the filepath.
+// default task to be run with `gulp` command
+// this default task will run BrowserSync & then use Gulp to watch files.
+// when a file is changed, an event is emitted to BrowserSync with the filepath.
 gulp.task('default', ['browser-sync', 'sass', 'minify-css'], function () {
     gulp.watch('styles/*.css', function (file) {
         if (file.type === "changed") {
@@ -263,7 +257,7 @@ gulp.task('default', ['browser-sync', 'sass', 'minify-css'], function () {
 });
 
 /**
- * Build Task:
+ * build Task:
  * 1. clean _build folder
  * 2. compile SASS files, minify and uncss compiled css
  * 3. copy and minimize images
@@ -283,4 +277,3 @@ gulp.task('build', function(callback) {
     'build:size',
     callback);
 });
-
