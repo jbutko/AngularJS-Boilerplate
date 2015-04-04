@@ -24,7 +24,6 @@ var minifyCSS       = require('gulp-minify-css');
 var minifyHTML      = require('gulp-minify-html');
 var del             = require('del'); // delete files
 var concat          = require('gulp-concat');
-var gulp            = require('gulp');
 var imagemin        = require('gulp-imagemin');
 var sourcemaps      = require('gulp-sourcemaps');
 var autoprefixer    = require('gulp-autoprefixer');
