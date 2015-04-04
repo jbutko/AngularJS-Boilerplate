@@ -67,6 +67,13 @@ Copyright (C) 2015 Jozef Butko<br>
 [@jozefbutko](http://www.twitter.com/jozefbutko)
 
 ## Changelog
+### 1.1.3
+- index.html update: added browserupgrade tag<br>
+- index.html update: http-equiv meta tag, google analytics support<br>
+- comments update in gulpfile.js<br>
+- gulpfile.js formatting<br>
+- pull request #1: removed duplicate gulp require in gulpfile.js<br>
+
 ### 1.1.2
 - package.json and gulpfile.js clean up<br>
 02.04.2015
