@@ -67,9 +67,14 @@ gulp server-build
 Copyright (C) 2015 Jozef Butko<br>
 [www.jozefbutko.com/resume](http://www.jozefbutko.com/resume)<br>
 [www.github.com/jbutko](http://www.github.com/jbutko)<br>
-[@jozefbutko](http://www.twitter.com/jozefbutko)
+[@jozefbutko](http://www.twitter.com/jozefbutko)<br>
+Released under MIT license
 
 ## Changelog
+### 1.1.5
+- added MIT License<br>
+19.04.2015
+
 ### 1.1.4
 - added minification of JS files in build task<br>
 - added favicon<br>

@@ -2,6 +2,7 @@
  * @author  Jozef Butko
  * @url		  www.jozefbutko.com/resume
  * @date    March 2015
+ * @license MIT
  *
  * AngularJS Boilerplate: Build, watch and other useful tasks
  *
