@@ -71,6 +71,10 @@ Copyright (C) 2015 Jozef Butko<br>
 Released under MIT license
 
 ## Changelog
+### 1.1.6
+- Cleaned up the gulpfile with gulp-load-plugins - pull req #6 by @davieschoots<br>
+26.04.2015
+
 ### 1.1.5
 - added MIT License<br>
 19.04.2015
