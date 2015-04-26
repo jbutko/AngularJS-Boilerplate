@@ -17,36 +17,19 @@
  * 8. show build folder size
  * 
  */
-var browserSync     = require('browser-sync');
-var reload          = browserSync.reload;
-var gulp            = require('gulp');
-var sass            = require('gulp-sass');
-var filter          = require('gulp-filter');
-var uglify          = require('gulp-uglify');
-var minifyCSS       = require('gulp-minify-css');
-var minifyHTML      = require('gulp-minify-html');
-var del             = require('del'); // delete files
-var concat          = require('gulp-concat');
-var imagemin        = require('gulp-imagemin');
-var sourcemaps      = require('gulp-sourcemaps');
-var autoprefixer    = require('gulp-autoprefixer');
-var rename          = require('gulp-rename');
-var notify          = require('gulp-notify');
-var changed         = require('gulp-changed');
-var usemin          = require('gulp-usemin');
-var rev             = require('gulp-rev');// append revision numbers at the end of filename: https://github.com/sindresorhus/gulp-rev
-var size            = require('gulp-size');
-var uncss           = require('gulp-uncss');
-var htmlreplace     = require('gulp-html-replace');
-var runSequence     = require('run-sequence');
-var templateCache   = require('gulp-angular-templatecache');
+var gulp            = require('gulp'),
+    browserSync     = require('browser-sync'),
+    reload          = browserSync.reload,
+    $               = require('gulp-load-plugins')(),
+    del             = require('del'),
+    runSequence     = require('run-sequence');
 
 
 // optimize images
 gulp.task('images', function() {
   return gulp.src('./images/*')
-    .pipe(changed('./_build/images'))
-    .pipe(imagemin({
+    .pipe($.changed('./_build/images'))
+    .pipe($.imagemin({
       optimizationLevel: 3,
       progressive: true,
       interlaced: true
@@ -66,15 +49,15 @@ gulp.task('browser-sync', function() {
 // minify JS
 gulp.task('minify-js', function() {
   gulp.src('js/*.js')
-    .pipe(uglify())
+    .pipe($.uglify())
     .pipe(gulp.dest('./_build/'));
 });
 
 // minify CSS
 gulp.task('minify-css', function() {
   gulp.src(['./styles/**/*.css', '!./styles/**/*.min.css'])
-    .pipe(rename({suffix: '.min'}))
-    .pipe(minifyCSS({keepBreaks:true}))
+    .pipe($.rename({suffix: '.min'}))
+    .pipe($.minifyCss({keepBreaks:true}))
     .pipe(gulp.dest('./styles/'))
     .pipe(gulp.dest('./_build/css/'));
 });
@@ -88,14 +71,14 @@ gulp.task('minify-html', function() {
   };
 
   gulp.src('./*.html')
-    .pipe(minifyHTML(opts))
+    .pipe($.minifyHtml(opts))
     .pipe(gulp.dest('./_build/'));
 });
 
 // copy fonts from a module outside of our project (like Bower)
 gulp.task('fonts', function() {
   gulp.src('./fonts/**/*.{ttf,woff,eof,eot,svg}')
-    .pipe(changed('./_build/fonts'))
+    .pipe($.changed('./_build/fonts'))
     .pipe(gulp.dest('./_build/fonts'));
 });
 
@@ -129,7 +112,7 @@ gulp.task('clean:build', function (cb) {
 // concat files
 gulp.task('concat', function() {
   gulp.src('./js/*.js')
-    .pipe(concat('scripts.js'))
+    .pipe($.concat('scripts.js'))
     .pipe(gulp.dest('./_build/'));
 });
 
@@ -137,34 +120,34 @@ gulp.task('concat', function() {
 // will auto-update browsers
 gulp.task('sass', function() {
   return gulp.src('styles/style.scss')
-    .pipe(sourcemaps.init())
-    .pipe(sass({
+    .pipe($.sourcemaps.init())
+    .pipe($.sass({
       style: 'expanded'
     }))
-    .on('error', notify.onError({
+    .on('error', $.notify.onError({
       title: 'SASS Failed',
       message: 'Error(s) occurred during compile!'
     }))
-    .pipe(sourcemaps.write())
+    .pipe($.sourcemaps.write())
     .pipe(gulp.dest('styles'))
     .pipe(reload({
       stream: true
     }))
-    .pipe(notify({
+    .pipe($.notify({
       message: 'Styles task complete'
     }));
 });
 
 // SASS Build task
 gulp.task('sass:build', function() {
-  var s = size();
+  var s = $.size();
 
   return gulp.src('styles/style.scss')
-    .pipe(sass({
+    .pipe($.sass({
       style: 'compact'
     }))
-    .pipe(autoprefixer('last 3 version'))
-    .pipe(uncss({
+    .pipe($.autoprefixer('last 3 version'))
+    .pipe($.uncss({
       html: ['./index.html', './views/**/*.html', './components/**/*.html'],
       ignore: [
         '.index',
@@ -174,15 +157,15 @@ gulp.task('sass:build', function() {
         /\.owl-prev/
       ]
     }))
-    .pipe(minifyCSS({
+    .pipe($.minifyCss({
       keepBreaks: true,
       aggressiveMerging: false,
       advanced: false
     }))
-    .pipe(rename({suffix: '.min'}))
+    .pipe($.rename({suffix: '.min'}))
     .pipe(gulp.dest('_build/css'))
     .pipe(s)
-    .pipe(notify({
+    .pipe($.notify({
       onLast: true,
       message: function() {
         return 'Total CSS size ' + s.prettySize;
@@ -198,16 +181,16 @@ require('events').EventEmitter.prototype._maxListeners = 100;
 gulp.task('usemin', function() {
   return gulp.src('./index.html')
     // add templates path
-    .pipe(htmlreplace({
+    .pipe($.htmlReplace({
       'templates': '<script type="text/javascript" src="js/templates.js"></script>'
     }))
-    .pipe(usemin({
-      css: [minifyCSS(), 'concat'],
-      libs: [uglify()],
-      nonangularlibs: [uglify()],
-      angularlibs: [uglify()],
-      appcomponents: [uglify()],
-      mainapp: [uglify()]
+    .pipe($.usemin({
+      css: [$.minifyCss(), 'concat'],
+      libs: [$.uglify()],
+      nonangularlibs: [$.uglify()],
+      angularlibs: [$.uglify()],
+      appcomponents: [$.uglify()],
+      mainapp: [$.uglify()]
     }))
     .pipe(gulp.dest('./_build/'));
 });
@@ -220,8 +203,8 @@ gulp.task('templates', function() {
       '!node_modules/**/*.*',
       '!_build/**/*.*'
     ])
-    .pipe(minifyHTML())
-    .pipe(templateCache({
+    .pipe($.minifyHtml())
+    .pipe($.angularTemplatecache({
       module: 'boilerplate'
     }))
     .pipe(gulp.dest('_build/js'));
@@ -234,11 +217,11 @@ gulp.task('bs-reload', function() {
 
 // calculate build folder size
 gulp.task('build:size', function() {
-  var s = size();
+  var s = $.size();
 
   return gulp.src('./_build/**/*.*')
     .pipe(s)
-    .pipe(notify({
+    .pipe($.notify({
       onLast: true,
       message: function() {
         return 'Total build size ' + s.prettySize;
