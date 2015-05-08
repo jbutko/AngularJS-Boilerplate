@@ -36,7 +36,9 @@
     "tiny-lr": "^0.1.4",
     "watch": "^0.13.0"
   },
-  "scripts": {},
+  "scripts": {
+    "postinstall": "bower install --no-interactive --allow-root"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/jbutko/AngularJS-Boilerplate.git"
