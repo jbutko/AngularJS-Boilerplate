@@ -27,7 +27,7 @@ var gulp            = require('gulp'),
 
 // optimize images
 gulp.task('images', function() {
-  return gulp.src('./images/*')
+  return gulp.src('./images/**/*')
     .pipe($.changed('./_build/images'))
     .pipe($.imagemin({
       optimizationLevel: 3,
