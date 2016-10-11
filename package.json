@@ -18,7 +18,7 @@
     "gulp-html-replace": "^1.4.4",
     "gulp-imagemin": "^2.2.1",
     "gulp-load-plugins": "^0.10.0",
-    "gulp-minify-css": "^0.4.2",
+    "gulp-minify-css": "^1.2.4",
     "gulp-minify-html": "^0.1.8",
     "gulp-notify": "^2.1.0",
     "gulp-rename": "^1.2.0",
