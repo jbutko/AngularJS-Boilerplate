@@ -35,11 +35,20 @@ npm install
 
 ## 2. Watch files
 ```bash
+npm start
+```
+or
+```bash
 gulp
 ```
+
 - all SCSS/HTML will be watched for changes and injected into browser thanks to BrowserSync
 
 ## 3. Build production version
+```bash
+npm run build
+```
+or
 ```bash
 gulp build
 ```
@@ -55,10 +64,18 @@ gulp build
 
 ## 4. Start webserver without watch task
 ```bash
+npm run server
+```
+or
+```bash
 gulp server
 ```
 
 ## 5. Start webserver from build folder
+```bash
+npm run serverbuild
+```
+or
 ```bash
 gulp server-build
 ```
